@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% extends 'testapp/base.html' %}
+
+{% block body_block %}
+
+<style media="screen">
+  img {
+
+    height : 150px;
+
+  }
+</style>
+
+
+<div class="container" align = "center">
+  <div class="row">
+    <h2><em>All photos:</em></h2>
+    {% if photos %}
+    {% for p in photos %}
+
+    <div class="col-md-4">
+      <img class="card-img-top" src="{{p.image.url}}" alt="Card image cap">
+      <div class="card-body" >
+        <h5 class="card-title" >Description : {{p.desc|truncatewords:30}}</h5>
+        <a href="/photo/{{p.id}}" class="btn btn-primary" align= "center">Open</a>
+      </div>
+    </div>
+
+    {% endfor %}
+    {% else %}
+    <p>No images found</p>
+    {% endif %}
+  </div>
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+{% extends "testapp/base.html" %}
+
+{% block body_block %}
+
+<div class="m-5">
+  <div class="container">
+    <h2>Kindly fill the below Information:</h2>
+
+    <form  method="post" enctype = "multipart/form-data">
+
+      <div class="form-group">
+        <label for="newcat">New Category</label>
+        <input type="text" class="form-control" name="newcat" placeholder="add..">
+      </div>
+     <br>
+      <h2>or</h2>
+     <br>
+
+      {{form.as_p}}
+      {% csrf_token %}
+
+    <input class="btn btn-primary btn-success"  type="submit" name="" value="Add">
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

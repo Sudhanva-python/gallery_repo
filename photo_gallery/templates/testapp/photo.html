@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+{% extends 'testapp/base.html' %}
+
+{% block body_block %}
+
+<style media="screen">
+img {
+
+  height : 500px;
+  width : 600px;
+  align : "center";
+}
+</style>
+<div class="m-5">
+
+
+<div class="container" align="center">
+
+
+
+<img  src="{{photo.image.url}}" alt="No image found">
+
+<p>Description : {{photo.desc}}</p>
+
+<a class="btn btn-primary btn-sm "  href="{{request.META.HTTP_REFERER|escape}}">Back</a>
+
+</div>
+
+</div>
+
+{% endblock %}

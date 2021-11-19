@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+{% extends 'testapp/base.html' %}
+
+{% block body_block %}
+
+<style media="screen">
+  img {
+    height : 150px;
+
+  }
+</style>
+
+
+
+
+
+    <div class="container">
+
+    <div class="row">
+        <div class="col-md-3">
+          <hr>
+            <div class="card" ">
+              <div class="card-header">
+                Featured
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" ><a  href="/gallery">Gallery</a></li>
+                <li class="list-group-item" ><a  href="/add_photo">Add photos</a></li>
+
+              </ul>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-9">
+          <h2><em>Categories : </em></h2>
+          <div class="row">
+
+          {% for cat in categories %}
+
+            {% for p in photo_list %}
+              {% if forloop.counter == forloop.parentloop.counter %}
+
+
+
+
+
+                  <div class="col-md-3">
+                      <div class="card my-2">
+                        <img class="card-img-top" src="{{p.image.url}}" alt="Card image cap">
+                        <div class="card-body" >
+                          <h5 class="card-title" >{{cat.name | title}}</h5>
+                          <a href="/photos/{{cat}}" class="btn btn-primary" align= "center">View</a>
+                        </div>
+                      </div>
+                </div>
+
+
+            {% endif %}
+
+          {% endfor %}
+
+
+{% endfor %}
+
+
+
+
+
+          </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
